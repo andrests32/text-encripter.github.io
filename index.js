@@ -52,17 +52,23 @@ bttnEncripter.addEventListener("click", () => {
   let valor = inputEncripter.value.toLowerCase().trim();
   let textoModificado = encriptarTexto(valor);
   textoEncriptado.textContent = textoModificado;
-  inputEncripter.style.display = "none";
-  bttnEncripter.style.display = "none";
-  bttnCopy.style.display = "block";
-  bttnDesencripter.style.display = "none";
-  title.textContent = switchTitle;
+
+  if ((inputEncripter.value === "")) {
+      messageCopy.textContent = `Debes ingresar algo!!`
+  } else {
+    inputEncripter.style.display = "none";
+    bttnEncripter.style.display = "none";
+    bttnCopy.style.display = "block";
+    bttnDesencripter.style.display = "none";
+    title.textContent = switchTitle;
+  }
 });
 
 bttnDesencripter.addEventListener("click", () => {
   let valor = inputEncripter.value.toLowerCase().trim();
   let textoModificado = desencriptarTexto(valor);
   textoEncriptado.textContent = textoModificado;
+
   title.textContent = switchTitle2;
   title.style.fontSize = "30px";
   bttnEncripter.style.display = "none";
